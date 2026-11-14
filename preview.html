@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Engineering — Настройка серверов</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b0f14;
+            color: #e6edf3;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        header {
+            padding: 24px 0;
+            border-bottom: 1px solid #222b36;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #9daab8;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+        }
+
+        .hero {
+            padding: 95px 0 80px;
+            border-bottom: 1px solid #222b36;
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            line-height: 1.2;
+            max-width: 750px;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            color: #9daab8;
+            font-size: 18px;
+            max-width: 650px;
+        }
+
+        .section {
+            padding: 75px 0;
+        }
+
+        .section-title {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .section-description {
+            color: #9daab8;
+            margin-bottom: 35px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .service-card {
+            background: #111820;
+            border: 1px solid #27313d;
+            border-radius: 12px;
+            padding: 28px;
+            transition: 0.2s;
+        }
+
+        .service-card:hover {
+            border-color: #52677f;
+            transform: translateY(-3px);
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #9daab8;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .service-card ul {
+            list-style: none;
+            margin-bottom: 22px;
+        }
+
+        .service-card li {
+            color: #c2ccd6;
+            font-size: 14px;
+            padding: 5px 0;
+        }
+
+        .service-card li::before {
+            content: "— ";
+            color: #6f9bd1;
+        }
+
+        .price {
+            display: inline-block;
+            color: #8db9f0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .price-note {
+            color: #778594;
+            font-size: 12px;
+            margin-top: 7px;
+        }
+
+        .contacts {
+            background: #111820;
+            border-top: 1px solid #27313d;
+            padding: 60px 0;
+        }
+
+        .contact-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .contact-item {
+            background: #18222d;
+            border: 1px solid #2b3948;
+            padding: 16px 22px;
+            border-radius: 8px;
+            color: #b9c8d8;
+            transition: 0.2s;
+        }
+
+        .contact-item:hover {
+            border-color: #6f9bd1;
+            color: #ffffff;
+        }
+
+        footer {
+            padding: 25px 0;
+            color: #687786;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        @media (max-width: 700px) {
+            .header-content {
+                flex-direction: column;
+            }
+
+            nav {
+                gap: 16px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="container header-content">
+        <div class="logo">SERVER ENGINEERING</div>
+
+        <nav>
+            <a href="#services">Услуги</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Настройка серверов и Linux-инфраструктуры</h1>
+
+            <p>
+                Помощь с настройкой игровых серверов, Linux VPS,
+                автоматизацией задач, мониторингом и резервным копированием.
+            </p>
+        </div>
+    </section>
+
+    <section class="section" id="services">
+        <div class="container">
+
+            <h2 class="section-title">Услуги и цены</h2>
+
+            <p class="section-description">
+                Основные направления работы и ориентировочная стоимость услуг.
+            </p>
+
+            <div class="services">
+
+                <div class="service-card">
+                    <h3>Minecraft-серверы</h3>
+
+                    <p>
+                        Установка, настройка и подготовка Minecraft-серверов
+                        к работе.
+                    </p>
+
+                    <ul>
+                        <li>Установка Paper, Purpur, Fabric и Forge</li>
+                        <li>Настройка модов и плагинов</li>
+                        <li>Настройка конфигураций</li>
+                        <li>Оптимизация производительности</li>
+                        <li>Настройка автоматического запуска</li>
+                    </ul>
+
+                    <div class="price-note">Стоимость зависит от сложности сборки.</div>
+                </div>
+
+                <div class="service-card">
+                    <h3>Linux и VPS</h3>
+
+                    <p>
+                        Подготовка виртуальных серверов и базовая
+                        настройка Linux-систем.
+                    </p>
+
+                    <ul>
+                        <li>Установка и настройка Debian</li>
+                        <li>Настройка SSH и пользователей</li>
+                        <li>Настройка Firewall</li>
+                        <li>Установка необходимого ПО</li>
+                        <li>Базовая настройка безопасности</li>
+                    </ul>
+
+                    <div class="price-note">Цена зависит от количества настроек.</div>
+                </div>
+
+                <div class="service-card">
+                    <h3>Автоматизация и DevOps</h3>
+
+                    <p>
+                        Автоматизация повторяющихся задач и упрощение
+                        управления серверной инфраструктурой.
+                    </p>
+
+                    <ul>
+                        <li>Создание Ansible Playbook и Roles</li>
+                        <li>Автоматизация установки ПО</li>
+                        <li>Настройка скриптов обслуживания</li>
+                        <li>Автоматизация конфигураций</li>
+                    </ul>
+
+                    <div class="price-note">Стоимость зависит от объёма автоматизации.</div>
+                </div>
+
+                <div class="service-card">
+                    <h3>Мониторинг и резервное копирование</h3>
+
+                    <p>
+                        Настройка контроля состояния серверов
+                        и защиты данных от потери.
+                    </p>
+
+                    <ul>
+                        <li>Мониторинг состояния служб</li>
+                        <li>Контроль загрузки ресурсов</li>
+                        <li>Настройка резервного копирования</li>
+                        <li>Проверка восстановления данных</li>
+                        <li>Уведомления о сбоях</li>
+                    </ul>
+
+                    <div class="price-note">Цена зависит от числа серверов и компонентов.</div>
+                </div>
+
+            </div>
+
+            <p class="price-note" style="margin-top: 25px; font-size: 13px;">
+                Указаны ориентировочные начальные цены за выполнение работ.
+                Точная стоимость определяется после уточнения задачи.
+                Оплата VPS, лицензий и сторонних сервисов не включена.
+            </p>
+
+        </div>
+    </section>
+
+    <section class="contacts" id="contacts">
+        <div class="container">
+
+            <h2 class="section-title">Контакты</h2>
+
+            <p class="section-description">
+                По вопросам услуг и сотрудничества можно связаться
+                со мной через следующие каналы.
+            </p>
+
+            <div class="contact-list">
+
+                <div class="contact-item">
+                  yura94708@gmail.com
+                </div>
+
+     
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="container">
+        © 2026 Server Engineering
+    </div>
+</footer>
+
+</body>
+</html>
